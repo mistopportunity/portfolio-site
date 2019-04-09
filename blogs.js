@@ -34,7 +34,6 @@ function togglenavigation2() {
     } else {
         navbar.style.display = "none";
     }
-    pages.classList.toggle("doubletop");
 }
 let bookmarking = false;
 function bookmarklocation() {
@@ -271,7 +270,7 @@ function loadIndex(callback) {
     const bookmarks = getbookmarks();
     let bookmarkpage = null;
     if(bookmarks !== null && bookmarks.length !== 0) {
-        bookmarkpage = '<span class="bold underline">Your Bookmarks</span><br>';
+        bookmarkpage = '<span class="bold underline">Your Bookmarks</span><br><br>';
         for(let i = 0;i<bookmarks.length;i++) {
             bookmarkpage += `<span class="link" onclick="navigate('${bookmarks[i]}')">${i+1}. ${bookmarks[i]}</span><br>`;
             if(i < bookmarks.length-1) {
@@ -288,7 +287,7 @@ function loadIndex(callback) {
             addpages(client.responseText.split("[end-page]"));
             settitle(websitetitle);
         } else {
-            addpages(["Error loading index file. Sorry :("])
+            addpages(["Error loading index file. Sorry :("]);
             settitle(websitetitle);
         }
         if(callback) {
@@ -302,7 +301,7 @@ function loadIndex(callback) {
         if(bookmarkpage !== null) {
             addpages([bookmarkpage]);
         }
-        addpages(["Error loading index file. Sorry :("])
+        addpages(["Error loading index file. Sorry :("]);
         settitle(websitetitle);
         if(callback) {
             callback();
@@ -313,8 +312,8 @@ function loadIndex(callback) {
     client.send();
 }
 function clearpages() {
-    while(pages.firstChild) {
-        pages.removeChild(pages.firstChild);
+    while(pages.lastChild) {
+        pages.removeChild(pages.lastChild);
     }
 }
 function addpages(textwithhtml) {
