@@ -1,5 +1,12 @@
 var navbarButtons = document.querySelector(".navbar").children;
 var currentPageIndex = getCurrentPageIndex();
+
+var pages = [
+    document.getElementById("projects-container"),
+    document.getElementById("blogs-container"),
+    document.getElementById("contact-container")
+];
+
 reconstructNavBar();
 
 function getCurrentPageIndex() {
@@ -41,13 +48,48 @@ function reconstructNavBar() {
 }
 function clearCurrentPage() {
     navbarButtons[currentPageIndex].classList.remove("selected");
+    pages[currentPageIndex].classList.add("hidden");
 }
 function applyNewPage() {
     navbarButtons[currentPageIndex].classList.add("selected");
+    pages[currentPageIndex].classList.remove("hidden");
 }
 function changePage(newPageIndex) {
+    if(newPageIndex === currentPageIndex) {
+        return;
+    }
     clearCurrentPage();
     currentPageIndex = newPageIndex;
     applyNewPage();
     console.log("Changed to page " + newPageIndex);
+    switch(newPageIndex) {
+        case 0:
+            document.location.hash = "#projects";
+            break;
+        case 1:
+            document.location.hash = "#blogs";
+            break;
+        case 2:
+            document.location.hash = "#about";
+            break;
+    }
+}
+
+if(document.location.hash) {
+    switch(document.location.hash) {
+        default:
+            document.location.hash = "#projects";
+            break;
+        case "#projects":
+            changePage(0);
+            break;
+        case "#blogs":
+            changePage(1);
+            break;
+        case "#about":
+            changePage(2);
+            break;
+    }
+} else {
+    document.location.hash = "#projects";
 }

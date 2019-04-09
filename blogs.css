@@ -1,0 +1,256 @@
+body, html {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+#pages p {
+    margin: 0;
+    padding: 3vh;
+    font-family: monospace;
+    font-size: 2.5vh;
+    line-height: 3vh;
+}
+#pages span.bold {
+    font-weight: bolder;
+}
+#pages span.underline {
+    text-decoration: underline;
+}
+#pages span.link, #pages a {
+    cursor: pointer;
+    font-family: serif;
+    padding-left: 1vh;
+    padding-right: 1.4vh;
+    padding-top: 0.25vh;
+    padding-bottom: 0.25vh;
+}
+.light #pages span.link, .light #pages a  {
+    color: white;
+    background-color: #252525;
+}
+.dark #pages span.link, .dark #pages a  {
+    color: #000000;
+    background-color: #ffffff;
+}
+#pages a {
+    text-decoration: none;
+}
+#pages span.link:hover, #pages a:hover {
+    text-decoration: underline;
+}
+.dark #pages span.light-only {
+    color: #000000;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.light #pages span.dark-only {
+    color: white;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.dark #pages span.dark-only {
+    color: #656565;
+}
+.light #pages span.light-only {
+    color: #ababab;
+}
+.dark #pages span.light-overlap {
+    display: none;
+}
+.light #pages span.dark-overlap {
+    display: none;
+}
+.light {
+    background-color: #f5f5f5;
+    color: #565656;
+}
+.dark {
+    background-color: #252525;
+    color: white;
+}
+.light #pages div {
+    background-color: white;
+    outline-color: #dedede;
+    box-shadow: #dedede 0 0 2vh 0;
+}
+.dark #pages div {
+    background-color: #000000;
+    outline-color: #1b1b1b;
+    box-shadow: #1b1b1b 0 0 2vh 0;
+}
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: sticky;
+    display: block;
+    width: 100%;
+    z-index: 1;
+    top: 0%;
+}
+.navbar li {
+    width: 33.33%;
+    float: left;
+}
+
+.navbar li a.disabled {
+    cursor: default;
+}
+.navbar li a {
+    display: block;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: sans-serif;
+    padding: 12px;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.navbar:nth-child(1) a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+
+#pages {
+    width: 100%;
+    position: relative;
+}
+#pages div {
+    width: 75vh;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    margin-top: 15px;
+    outline-style: solid;
+    outline-width: 0.1vh;
+}
+#pages {
+    margin-bottom: 15px;
+}
+#pages img, #pages iframe {
+    display: block;
+    width: 60vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+#pages iframe {
+    height: 39vh;
+}
+.dark #pages iframe {
+    background-color: white;
+}
+.light #pages iframe {
+    background-color: black;
+}
+@media only screen and (max-width: 78.6vh) {
+    #pages div {
+        width: 92vw;
+        border-width: 0.122vw;
+        margin-top: 3.75vw;
+    }
+    #pages {
+        margin-bottom: 4vw;
+    }
+    .light .pages div {
+        box-shadow: #dedede 0 0 2.45vw 0;
+    }
+    .dark .pages div {
+        box-shadow: #1b1b1b 0 0 2.45vw 0;
+    }
+    #pages div p {
+        margin: 0;
+        padding: 3.67vw;
+        font-family: monospace;
+        font-size: 3.06vw;
+        line-height: 3.67vw;
+    }
+    #pages iframe, #pages img {
+        width: 72.3vw;
+    }
+    #pages iframe {
+        height: 47.58vw;
+    }
+    #pages div p span.link {    
+        padding-left: 1.2vw;
+        padding-right: 1.68vw;
+        padding-top: 0.3vw;
+        padding-bottom: 0.3vw;
+    }
+}
+.navbar li a:hover {
+    background-color: #393b40;
+}
+.navbar li a.disabled:hover {
+    background-color: inherit;
+}
+.navbar {
+    color: white;
+}
+.light .navbar {
+    background-color: #313131;
+}
+.dark .navbar {
+    background-color: #1b1b1b;
+}
+.navbar li a {
+    color: white;
+}
+.navbar li {
+    background-color: inherit;
+}
+
+.navbar li a.disabled {
+    background-color: inherit;
+}
+.navbar li a.disabled:hover {
+    background-color: inherit;
+}
+#lightToggle,#forwardbutton,#backbutton {
+    background-color: black;
+    color: white;
+}
+#lightToggle:not(.disabled):hover,#forwardbutton:not(.disabled):hover,#backbutton:not(.disabled):hover {
+    background-color: #393b40;
+}
+noscript {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+noscript p {
+    display: block;
+    text-align: center;
+    font-family: sans-serif;
+    margin: 16px;
+    color: white;
+    line-height: 32px;
+    font-size: 16px;
+}
+noscript p a {
+    color: red;
+}
+.overflow-disabled {
+    overflow: hidden;
+}
