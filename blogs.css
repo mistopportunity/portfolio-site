@@ -168,6 +168,21 @@ body, html {
         width: calc(100% - 27px);
     }
 }
+@media only screen and (max-width: 700px) {
+    .navbar li a {
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 450px) {
+    .navbar li a {
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 350px) {
+    .navbar li a {
+        font-size: 10px;
+    }
+}
 .navbar li a:hover {
     background-color: #393b40;
 }
