@@ -2,6 +2,7 @@ body {
     padding: 0;
     margin: 0;
     background-color: black;
+    overflow-x: hidden;
 }
 .inner-area {
     position: relative;
@@ -13,7 +14,7 @@ body {
     margin: 0;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;

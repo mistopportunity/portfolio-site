@@ -84,6 +84,7 @@ body, html {
 .dark {
     background-color: #252525;
     color: white;
+    overflow-x: hidden;
 }
 .light #pages div {
     background-color: white;
