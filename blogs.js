@@ -135,18 +135,13 @@ function disablepostindexbuttons() {
     indexbutton.textContent = "";
 }
 function settitle(title) {
-
     const titlesplit = title.split("/");
     const filename = titlesplit[titlesplit.length-1];
-
     if(title !== websitetitle) {
-        window.location.hash = title;
         document.title = `${websitetitle}: ${title}`
     } else {
-        window.location.hash = "Index";
         document.title = websitetitle;
     }
-
     document.getElementById("title").textContent = filename;
 }
 let historyIndex = 0;
@@ -256,7 +251,7 @@ function goforward() {
     historyIndex++;
     buttonnavigate(function () {
         if(nav2shown) {
-            togglenavigation2(); //no like
+            togglenavigation2();
         }
     });
 }
@@ -276,7 +271,7 @@ function loadIndex(callback) {
     const bookmarks = getbookmarks();
     let bookmarkpage = null;
     if(bookmarks !== null && bookmarks.length !== 0) {
-        bookmarkpage = '<span class="bold underline">Your Bookmarks</span><br><br>';
+        bookmarkpage = '<span class="bold underline">Your Bookmarks</span><br>';
         for(let i = 0;i<bookmarks.length;i++) {
             bookmarkpage += `<span class="link" onclick="navigate('${bookmarks[i]}')">${i+1}. ${bookmarks[i]}</span><br>`;
             if(i < bookmarks.length-1) {
@@ -331,34 +326,4 @@ function addpages(textwithhtml) {
         pages.appendChild(div);
     }
 }
-function setup() {
-    //this is just fucked up honestly, but what alternative is there?
-    history.pushState(null, "Index", location.href);
-    window.onpopstate = function () {
-        history.go(1);
-    };
-    if(window.location.hash === "") {
-        loadIndex();
-        return;
-    }
-    let hash = decodeURIComponent(window.location.hash);
-    hash = hash.trim();
-    hash = hash.replace(/#/g,"");
-    switch(hash) {
-        case null:
-        case "":
-        case indexlocation:
-        case "Index":
-            loadIndex();
-            break;
-        default:
-            if(hash.indexOf("/") < 0) {
-                loadIndex();
-                break;
-            }
-            navigating = false;
-            navigate(hash);
-            break;
-    }
-}
-setup();
+loadIndex();

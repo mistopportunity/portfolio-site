@@ -5,13 +5,19 @@ body, html {
 }
 #pages p {
     margin: 0;
-    padding: 3vh;
-    font-family: monospace;
-    font-size: 2.5vh;
-    line-height: 3vh;
+    padding: 20px;
+    font-family: sans-serif;
+    font-size: 20px;
+    line-height: 33px;
+    letter-spacing: -1px;
+    padding: 30px;
 }
 #pages span.bold {
     font-weight: bolder;
+    font-size: 22px;
+    letter-spacing: initial;
+    font-family: monospace;
+    line-height: 35px;
 }
 #pages span.underline {
     text-decoration: underline;
@@ -19,10 +25,13 @@ body, html {
 #pages span.link, #pages a {
     cursor: pointer;
     font-family: serif;
-    padding-left: 1vh;
-    padding-right: 1.4vh;
-    padding-top: 0.25vh;
-    padding-bottom: 0.25vh;
+    padding: 6px;
+    font-family: serif;
+    letter-spacing: initial;
+    font-size: 20px;
+    line-height: 35px;
+    display: block;
+    margin-top: 5px;
 }
 .light #pages span.link, .light #pages a  {
     color: white;
@@ -79,12 +88,12 @@ body, html {
 .light #pages div {
     background-color: white;
     outline-color: #dedede;
-    box-shadow: #dedede 0 0 2vh 0;
+    box-shadow: #dedede 0 0 1px 0;
 }
 .dark #pages div {
     background-color: #000000;
     outline-color: #1b1b1b;
-    box-shadow: #1b1b1b 0 0 2vh 0;
+    box-shadow: #1b1b1b 0 0 1px 0;
 }
 .navbar {
     list-style-type: none;
@@ -123,35 +132,31 @@ body, html {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
-
-
-
 #pages {
     width: 100%;
     position: relative;
 }
 #pages div {
-    width: 75vh;
+    width: 800px;
     position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, 0%);
     margin-top: 15px;
     outline-style: solid;
-    outline-width: 0.1vh;
+    outline-width: 1px;
 }
 #pages {
     margin-bottom: 15px;
 }
 #pages img, #pages iframe {
     display: block;
-    width: 60vh;
+    width: auto;
     margin-left: auto;
     margin-right: auto;
 }
 #pages iframe {
-    height: 39vh;
+    height: auto;
 }
 .dark #pages iframe {
     background-color: white;
@@ -159,39 +164,9 @@ body, html {
 .light #pages iframe {
     background-color: black;
 }
-@media only screen and (max-width: 78.6vh) {
+@media only screen and (max-width: 847px) {
     #pages div {
-        width: 92vw;
-        border-width: 0.122vw;
-        margin-top: 3.75vw;
-    }
-    #pages {
-        margin-bottom: 4vw;
-    }
-    .light .pages div {
-        box-shadow: #dedede 0 0 2.45vw 0;
-    }
-    .dark .pages div {
-        box-shadow: #1b1b1b 0 0 2.45vw 0;
-    }
-    #pages div p {
-        margin: 0;
-        padding: 3.67vw;
-        font-family: monospace;
-        font-size: 3.06vw;
-        line-height: 3.67vw;
-    }
-    #pages iframe, #pages img {
-        width: 72.3vw;
-    }
-    #pages iframe {
-        height: 47.58vw;
-    }
-    #pages div p span.link {    
-        padding-left: 1.2vw;
-        padding-right: 1.68vw;
-        padding-top: 0.3vw;
-        padding-bottom: 0.3vw;
+        width: calc(100% - 27px);
     }
 }
 .navbar li a:hover {

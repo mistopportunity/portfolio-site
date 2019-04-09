@@ -54,6 +54,19 @@ function applyNewPage() {
     navbarButtons[currentPageIndex].classList.add("selected");
     pages[currentPageIndex].classList.remove("hidden");
 }
+var preventHashUpdate = false;
+function getCurrentPageHash() {
+    switch(currentPageIndex) {
+        default:
+        case 0:
+            return "#projects";
+        case 1:
+            return "#blogs";
+        case 2:
+            return "#about";
+    }
+}
+
 function changePage(newPageIndex) {
     if(newPageIndex === currentPageIndex) {
         return;
@@ -62,34 +75,32 @@ function changePage(newPageIndex) {
     currentPageIndex = newPageIndex;
     applyNewPage();
     console.log("Changed to page " + newPageIndex);
-    switch(newPageIndex) {
-        case 0:
-            document.location.hash = "#projects";
-            break;
-        case 1:
-            document.location.hash = "#blogs";
-            break;
-        case 2:
-            document.location.hash = "#about";
-            break;
+    window.location.hash = getCurrentPageHash();
+}
+function processHashChange() {
+    if(window.location.hash !== getCurrentPageHash()) {
+        reloadByHash(false);
     }
 }
-
-if(document.location.hash) {
-    switch(document.location.hash) {
-        default:
-            document.location.hash = "#projects";
-            break;
-        case "#projects":
-            changePage(0);
-            break;
-        case "#blogs":
-            changePage(1);
-            break;
-        case "#about":
-            changePage(2);
-            break;
+function reloadByHash() {
+    if(window.location.hash) {
+        switch(document.location.hash) {
+            default:
+                window.location.hash = getCurrentPageHash();
+                break;
+            case "#projects":
+                changePage(0);
+                break;
+            case "#blogs":
+                changePage(1);
+                break;
+            case "#about":
+                changePage(2);
+                break;
+        }
+    } else {
+        window.location.hash = getCurrentPageHash();
     }
-} else {
-    document.location.hash = "#projects";
 }
+window.onhashchange = processHashChange;
+reloadByHash();
